@@ -1,0 +1,271 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix waste: <http://example.org/waste-hp#> .
+@prefix waste1: <http://example.org/waste#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+waste1:Composting a waste1:DisposalMethod ;
+    rdfs:label "Composting" .
+
+waste1:Electronic a waste1:WasteType ;
+    rdfs:label "Electronic" ;
+    waste1:hazardous true ;
+    waste1:recyclable true .
+
+waste1:Glass a waste1:WasteType ;
+    rdfs:label "Glass" ;
+    waste1:hazardous false ;
+    waste1:recyclable true .
+
+waste1:Landfill a waste1:DisposalMethod ;
+    rdfs:label "Landfill" .
+
+waste1:Metal a waste1:WasteType ;
+    rdfs:label "Metal" ;
+    waste1:hazardous false ;
+    waste1:recyclable true .
+
+waste1:Organic a waste1:WasteType ;
+    rdfs:label "Organic" ;
+    waste1:hazardous false ;
+    waste1:recyclable false .
+
+waste1:Paper a waste1:WasteType ;
+    rdfs:label "Paper" ;
+    waste1:hazardous false ;
+    waste1:recyclable true .
+
+waste1:Plastic a waste1:WasteType ;
+    rdfs:label "Plastic" ;
+    waste1:hazardous false ;
+    waste1:recyclable true .
+
+waste1:Recycling a waste1:DisposalMethod ;
+    rdfs:label "Recycling" .
+
+waste1:RecyclingFacility a owl:Class ;
+    rdfs:label "Recycling Facility" ;
+    rdfs:comment "A facility that processes recyclable materials" .
+
+waste1:SpecialCollection a waste1:DisposalMethod ;
+    rdfs:label "Special Collection" .
+
+waste1:WasteOntology a owl:Ontology ;
+    rdfs:label "Waste Management Ontology" ;
+    rdfs:comment "Ontology for waste classification and recycling knowledge" .
+
+waste1:decompositionTime a owl:DatatypeProperty ;
+    rdfs:label "decomposition time" ;
+    rdfs:domain waste1:Material ;
+    rdfs:range xsd:string .
+
+waste1:hasDisposalMethod a owl:ObjectProperty ;
+    rdfs:label "has disposal method" ;
+    rdfs:domain waste1:WasteType ;
+    rdfs:range waste1:DisposalMethod .
+
+waste1:hasMaterial a owl:ObjectProperty ;
+    rdfs:label "has material" ;
+    rdfs:domain waste1:WasteType ;
+    rdfs:range waste1:Material .
+
+waste1:hazardous a owl:DatatypeProperty ;
+    rdfs:label "is hazardous" ;
+    rdfs:domain waste1:WasteType ;
+    rdfs:range xsd:boolean .
+
+waste1:recyclable a owl:DatatypeProperty ;
+    rdfs:label "is recyclable" ;
+    rdfs:domain waste1:WasteType ;
+    rdfs:range xsd:boolean .
+
+waste:waste_06_01_01_star a waste:WasteEntry ;
+    waste:chapter "06" ;
+    waste:description "sulphuric acid and sulphurous acid" ;
+    waste:hasEntryType waste:AbsoluteHazardous ;
+    waste:hasHP waste:HP8 ;
+    waste:lowCode "06 01 01*" ;
+    waste:subchapter "06 01" .
+
+waste:waste_06_01_02_star a waste:WasteEntry ;
+    waste:chapter "06" ;
+    waste:description "hydrochloric acid" ;
+    waste:hasEntryType waste:AbsoluteHazardous ;
+    waste:hasHP waste:HP8 ;
+    waste:lowCode "06 01 02*" ;
+    waste:subchapter "06 01" .
+
+waste:waste_06_03_11_star a waste:WasteEntry ;
+    waste:chapter "06" ;
+    waste:description "solid salts and solutions containing cyanides" ;
+    waste:hasEntryType waste:AbsoluteHazardous ;
+    waste:hasHP waste:HP12,
+        waste:HP6 ;
+    waste:lowCode "06 03 11*" ;
+    waste:subchapter "06 03" .
+
+waste:waste_07_01_03_star a waste:WasteEntry ;
+    waste:chapter "07" ;
+    waste:description "organic halogenated solvents, washing liquids and mother liquors" ;
+    waste:hasEntryType waste:AbsoluteHazardous ;
+    waste:hasHP waste:HP14,
+        waste:HP3,
+        waste:HP6 ;
+    waste:lowCode "07 01 03*" ;
+    waste:subchapter "07 01" .
+
+waste:waste_07_01_04_star a waste:WasteEntry ;
+    waste:chapter "07" ;
+    waste:description "other organic solvents, washing liquids and mother liquors" ;
+    waste:hasEntryType waste:AbsoluteHazardous ;
+    waste:hasHP waste:HP3,
+        waste:HP6 ;
+    waste:lowCode "07 01 04*" ;
+    waste:subchapter "07 01" .
+
+waste:waste_11_01_05_star a waste:WasteEntry ;
+    waste:chapter "11" ;
+    waste:description "pickling acids" ;
+    waste:hasEntryType waste:AbsoluteHazardous ;
+    waste:hasHP waste:HP4,
+        waste:HP8 ;
+    waste:lowCode "11 01 05*" ;
+    waste:subchapter "11 01" .
+
+waste:waste_11_01_06_star a waste:WasteEntry ;
+    waste:chapter "11" ;
+    waste:description "acids not otherwise specified" ;
+    waste:hasEntryType waste:AbsoluteHazardous ;
+    waste:hasHP waste:HP8 ;
+    waste:lowCode "11 01 06*" ;
+    waste:subchapter "11 01" .
+
+waste:waste_11_01_07_star a waste:WasteEntry ;
+    waste:chapter "11" ;
+    waste:description "pickling bases" ;
+    waste:hasEntryType waste:AbsoluteHazardous ;
+    waste:hasHP waste:HP8 ;
+    waste:lowCode "11 01 07*" ;
+    waste:subchapter "11 01" .
+
+waste:waste_11_01_09_star a waste:WasteEntry ;
+    waste:chapter "11" ;
+    waste:description "sludges and filter cakes containing dangerous substances" ;
+    waste:hasEntryType waste:MirrorHazardous ;
+    waste:hasHP waste:HP14,
+        waste:HP4,
+        waste:HP6 ;
+    waste:lowCode "11 01 09*" ;
+    waste:subchapter "11 01" .
+
+waste:waste_11_01_10 a waste:WasteEntry ;
+    waste:chapter "11" ;
+    waste:description "sludges and filter cakes other than those mentioned in 11 01 09" ;
+    waste:hasEntryType waste:MirrorNonHazardous ;
+    waste:lowCode "11 01 10" ;
+    waste:subchapter "11 01" .
+
+waste:waste_13_01_10_star a waste:WasteEntry ;
+    waste:chapter "13" ;
+    waste:description "mineral based non-chlorinated hydraulic oils" ;
+    waste:hasEntryType waste:AbsoluteHazardous ;
+    waste:hasHP waste:HP14,
+        waste:HP3 ;
+    waste:lowCode "13 01 10*" ;
+    waste:subchapter "13 01" .
+
+waste:waste_13_02_05_star a waste:WasteEntry ;
+    waste:chapter "13" ;
+    waste:description "mineral-based non-chlorinated engine, gear and lubricating oils" ;
+    waste:hasEntryType waste:AbsoluteHazardous ;
+    waste:hasHP waste:HP14,
+        waste:HP3 ;
+    waste:lowCode "13 02 05*" ;
+    waste:subchapter "13 02" .
+
+waste:waste_14_06_02_star a waste:WasteEntry ;
+    waste:chapter "14" ;
+    waste:description "other halogenated solvents and solvent mixtures" ;
+    waste:hasEntryType waste:AbsoluteHazardous ;
+    waste:hasHP waste:HP3,
+        waste:HP6,
+        waste:HP7 ;
+    waste:lowCode "14 06 02*" ;
+    waste:subchapter "14 06" .
+
+waste:waste_16_04_01_star a waste:WasteEntry ;
+    waste:chapter "16" ;
+    waste:description "waste ammunition" ;
+    waste:hasEntryType waste:AbsoluteHazardous ;
+    waste:hasHP waste:HP1 ;
+    waste:lowCode "16 04 01*" ;
+    waste:subchapter "16 04" .
+
+waste:waste_16_05_06_star a waste:WasteEntry ;
+    waste:chapter "16" ;
+    waste:description "laboratory chemicals, consisting of or containing dangerous substances, including mixtures of laboratory chemicals" ;
+    waste:hasEntryType waste:AbsoluteHazardous ;
+    waste:hasHP waste:HP14,
+        waste:HP3,
+        waste:HP6,
+        waste:HP8 ;
+    waste:lowCode "16 05 06*" ;
+    waste:subchapter "16 05" .
+
+waste:waste_16_05_07_star a waste:WasteEntry ;
+    waste:chapter "16" ;
+    waste:description "discarded inorganic chemicals consisting of or containing dangerous substances" ;
+    waste:hasEntryType waste:AbsoluteHazardous ;
+    waste:hasHP waste:HP2,
+        waste:HP8 ;
+    waste:lowCode "16 05 07*" ;
+    waste:subchapter "16 05" .
+
+waste:waste_16_05_08_star a waste:WasteEntry ;
+    waste:chapter "16" ;
+    waste:description "discarded organic chemicals consisting of or containing dangerous substances" ;
+    waste:hasEntryType waste:AbsoluteHazardous ;
+    waste:hasHP waste:HP3,
+        waste:HP6 ;
+    waste:lowCode "16 05 08*" ;
+    waste:subchapter "16 05" .
+
+waste:waste_16_09_01_star a waste:WasteEntry ;
+    waste:chapter "16" ;
+    waste:description "permanganates, for example potassium permanganate" ;
+    waste:hasEntryType waste:AbsoluteHazardous ;
+    waste:hasHP waste:HP14,
+        waste:HP2 ;
+    waste:lowCode "16 09 01*" ;
+    waste:subchapter "16 09" .
+
+waste:waste_16_09_02_star a waste:WasteEntry ;
+    waste:chapter "16" ;
+    waste:description "chromates, for example potassium chromate, potassium or sodium dichromate" ;
+    waste:hasEntryType waste:AbsoluteHazardous ;
+    waste:hasHP waste:HP14,
+        waste:HP2,
+        waste:HP7 ;
+    waste:lowCode "16 09 02*" ;
+    waste:subchapter "16 09" .
+
+waste:waste_18_01_03_star a waste:WasteEntry ;
+    waste:chapter "18" ;
+    waste:description "wastes whose collection and disposal is subject to special requirements in order to prevent infection" ;
+    waste:hasEntryType waste:AbsoluteHazardous ;
+    waste:hasHP waste:HP9 ;
+    waste:lowCode "18 01 03*" ;
+    waste:subchapter "18 01" .
+
+waste1:Material a owl:Class ;
+    rdfs:label "Material" ;
+    rdfs:comment "A physical material that can be recycled or disposed" .
+
+waste1:DisposalMethod a owl:Class ;
+    rdfs:label "Disposal Method" ;
+    rdfs:comment "A method for disposing or recycling waste" .
+
+waste1:WasteType a owl:Class ;
+    rdfs:label "Waste Type" ;
+    rdfs:comment "A category of waste material" .
+

@@ -1,0 +1,18 @@
+# c:\Users\ncvet\cdr-platform\src\kg\__init__.py
+"""
+Knowledge Graph module for waste classification and compatibility.
+"""
+
+from .graph_store import WasteKnowledgeGraph
+from .models import WasteEntry, HazardousProperty, CompatibilityResult, WasteEntryType
+from .incompatibility_rules import INCOMPATIBLE_HP_PAIRS, get_incompatibility_reason
+
+__all__ = [
+    "WasteKnowledgeGraph",
+    "WasteEntry",
+    "HazardousProperty", 
+    "CompatibilityResult",
+    "WasteEntryType",
+    "INCOMPATIBLE_HP_PAIRS",
+    "get_incompatibility_reason",
+]
