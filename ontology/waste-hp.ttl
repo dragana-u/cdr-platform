@@ -1,0 +1,98 @@
+# c:\Users\ncvet\cdr-platform\data\ontology\waste_ontology.ttl
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix waste: <http://example.org/waste#> .
+
+# Ontology declaration
+waste:WasteOntology rdf:type owl:Ontology ;
+    rdfs:label "Waste Management Ontology" ;
+    rdfs:comment "Ontology for waste classification and recycling knowledge" .
+
+# Classes
+waste:WasteType rdf:type owl:Class ;
+    rdfs:label "Waste Type" ;
+    rdfs:comment "A category of waste material" .
+
+waste:Material rdf:type owl:Class ;
+    rdfs:label "Material" ;
+    rdfs:comment "A physical material that can be recycled or disposed" .
+
+waste:DisposalMethod rdf:type owl:Class ;
+    rdfs:label "Disposal Method" ;
+    rdfs:comment "A method for disposing or recycling waste" .
+
+waste:RecyclingFacility rdf:type owl:Class ;
+    rdfs:label "Recycling Facility" ;
+    rdfs:comment "A facility that processes recyclable materials" .
+
+# Properties
+waste:hasMaterial rdf:type owl:ObjectProperty ;
+    rdfs:domain waste:WasteType ;
+    rdfs:range waste:Material ;
+    rdfs:label "has material" .
+
+waste:hasDisposalMethod rdf:type owl:ObjectProperty ;
+    rdfs:domain waste:WasteType ;
+    rdfs:range waste:DisposalMethod ;
+    rdfs:label "has disposal method" .
+
+waste:recyclable rdf:type owl:DatatypeProperty ;
+    rdfs:domain waste:WasteType ;
+    rdfs:range xsd:boolean ;
+    rdfs:label "is recyclable" .
+
+waste:hazardous rdf:type owl:DatatypeProperty ;
+    rdfs:domain waste:WasteType ;
+    rdfs:range xsd:boolean ;
+    rdfs:label "is hazardous" .
+
+waste:decompositionTime rdf:type owl:DatatypeProperty ;
+    rdfs:domain waste:Material ;
+    rdfs:range xsd:string ;
+    rdfs:label "decomposition time" .
+
+# Waste Type Instances
+waste:Plastic rdf:type waste:WasteType ;
+    rdfs:label "Plastic" ;
+    waste:recyclable true ;
+    waste:hazardous false .
+
+waste:Glass rdf:type waste:WasteType ;
+    rdfs:label "Glass" ;
+    waste:recyclable true ;
+    waste:hazardous false .
+
+waste:Paper rdf:type waste:WasteType ;
+    rdfs:label "Paper" ;
+    waste:recyclable true ;
+    waste:hazardous false .
+
+waste:Metal rdf:type waste:WasteType ;
+    rdfs:label "Metal" ;
+    waste:recyclable true ;
+    waste:hazardous false .
+
+waste:Organic rdf:type waste:WasteType ;
+    rdfs:label "Organic" ;
+    waste:recyclable false ;
+    waste:hazardous false .
+
+waste:Electronic rdf:type waste:WasteType ;
+    rdfs:label "Electronic" ;
+    waste:recyclable true ;
+    waste:hazardous true .
+
+# Disposal Method Instances
+waste:Recycling rdf:type waste:DisposalMethod ;
+    rdfs:label "Recycling" .
+
+waste:Composting rdf:type waste:DisposalMethod ;
+    rdfs:label "Composting" .
+
+waste:Landfill rdf:type waste:DisposalMethod ;
+    rdfs:label "Landfill" .
+
+waste:SpecialCollection rdf:type waste:DisposalMethod ;
+    rdfs:label "Special Collection" .
